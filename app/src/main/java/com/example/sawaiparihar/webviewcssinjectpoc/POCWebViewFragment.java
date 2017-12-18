@@ -107,6 +107,7 @@ public class POCWebViewFragment extends Fragment {
         @Override
         public void onPageCommitVisible(WebView view, String url) {
             injectCSSFile(view, "pwa_home.css");
+
             super.onPageCommitVisible(view, url);
             webView.setVisibility(View.VISIBLE);
 
@@ -129,6 +130,11 @@ public class POCWebViewFragment extends Fragment {
             super.onPageFinished(view, url);
 
             injectScriptFile(view, "pwa_home.js");
+
+            injectScriptFile(view, "clientlog.js");
+            injectScriptFile(view, "countly.min.js");
+            injectScriptFile(view, "jquery.min.js");
+            injectScriptFile(view, "login-popup.js");
             System.out.println("page finished");
         }
 
